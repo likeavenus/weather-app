@@ -29,3 +29,52 @@
 
   margin-bottom: 20px;
 }
+
+.main_btn {
+  width: 180px;
+  height: 50px;
+  border-radius: 25px;
+  margin: 0 auto;
+  background: transparent;
+  border: 1px solid $ebony;
+  color: $ebony;
+  outline: none;
+  font-size: 22px;
+  line-height: 25px;
+  transition: all .3s ease;
+
+  &:hover,
+  &:active {
+    background: $ebony;
+    color: #fff;
+    cursor: pointer;
+  }
+}
+
+.main_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main_select_text {
+  margin-bottom: 20px;
+  font-size: 22px;
+  line-height: 25px;
+}
+
+.main_input {
+  border: none;
+  border-bottom: 1px solid #000;
+  font-family: $fontReg;
+  font-size: 22px;
+  line-height: 25px;
+  margin-bottom: 20px;
+  padding: 10px;
+  outline: none;
+}
+
+.main_weather {
+  margin-bottom: 10px;
+}
