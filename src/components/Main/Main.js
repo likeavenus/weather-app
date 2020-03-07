@@ -11,7 +11,8 @@ export default class Main extends Component {
             city: '',
             weather: '',
             temperature: undefined,
-            inputCity: ''
+            inputCity: '',
+            icon: ''
         }
     }
 
@@ -27,7 +28,8 @@ export default class Main extends Component {
                 city: '',
                 temperature: '',
                 weather: '',
-                inputCity: ''
+                inputCity: '',
+                icon: ''
             });
 
             const promise = await fetch(url);
@@ -38,7 +40,8 @@ export default class Main extends Component {
                 this.setState({
                     city: response.name,
                     temperature: this.getCelciusFromKelvin(response.main.temp),
-                    weather: response
+                    weather: response,
+                    icon: `http://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`
                 })
             } else {
                 this.getWeather('Saint Petersburg, RU');
@@ -65,7 +68,7 @@ export default class Main extends Component {
     }
 
     render() {
-        const {city, temperature, inputCity, weather} = this.state;
+        const {city, temperature, inputCity, weather, icon} = this.state;
         let content = <Preloader/>;
         if (city === '') {
             content = <Preloader/>;
@@ -73,6 +76,7 @@ export default class Main extends Component {
             content = <div className={styles.main}>
                 <div className={styles.main_container}>
                     <h1 className={styles.main_title}>{city}</h1>
+                    <img src={icon} alt="icon"/>
                     <p className={styles.main_weather}>{weather.weather[0].main}</p>
                     <p className={styles.main__temp}>{temperature} °C</p>
 
